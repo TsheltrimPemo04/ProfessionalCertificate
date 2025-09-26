@@ -111,7 +111,7 @@ const Home = () => {
             download="Tsheltrim_Pemo_CV.pdf"
             className="text-sm sm:text-base px-6 py-2 bg-white rounded-full hover:bg-transparent hover:text-white transition-all duration-300 w-full h-full z-10 relative overflow-hidden block text-center"
           >
-            <span className="z-20 relative">Download CV</span>
+            <span className="z-20 relative">Download Resume</span>
             <span className="absolute top-0 left-0 w-full h-full bg-white/10 opacity-0 group-hover:opacity-100 transition-all duration-700 blur-md animate-pulse"></span>
           </a>
         </div>
