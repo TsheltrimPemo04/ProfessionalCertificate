@@ -27,7 +27,7 @@ const Navbar = () => {
       isScrolled ? 'shadow-sm' : ''
     }`}>
       {/* Logo/Name */}
-      <a href='#home'><h1 className="font-bold">Tsheltrim Pemo</h1></a>
+      <a href='#home' className='flex space-x-2'><img src='/logo.svg' width={25} height={25}/><h1 className="font-bold">Tsheltrim Pemo</h1></a>
 
       {/* Hamburger Menu Icon */}
       <div className="md:hidden">

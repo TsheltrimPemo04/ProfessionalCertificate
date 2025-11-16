@@ -118,6 +118,6 @@ const Home = () => {
       </motion.div>
     </motion.div>
   );
-};
+}; 
 
 export default Home;

@@ -38,10 +38,17 @@ const Contact = () => {
         viewport={{ once: true }}
       >
         {/* Email */}
-        <div className='flex items-center space-x-3'>
-          <img src='/mail.svg' alt='Email' width={24} height={24} />
-          <p className='text-base sm:text-lg break-words'>tsheltrimpemo2004@gmail.com</p>
-        </div>
+      <a
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=tsheltrimpemo2004@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center space-x-3 cursor-pointer relative group"
+      >
+        <img src="/mail.svg" alt="Email" width={24} height={24} />
+        <p className="text-base sm:text-lg break-words">tsheltrimpemo2004@gmail.com</p>
+        <span className="absolute left-0 bg-black right-0 h-0.5 bottom-0 origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+
+      </a>
 
         {/* Phone */}
         <div className='flex items-center space-x-3'>
