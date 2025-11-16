@@ -42,7 +42,7 @@ const Contact = () => {
         href="https://mail.google.com/mail/?view=cm&fs=1&to=tsheltrimpemo2004@gmail.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center space-x-3 relative group"
+        className="flex items-center space-x-3 relative group cursor-pointer"
       >
         <img src="/mail.svg" alt="Email" width={24} height={24} />
         <p className="text-base sm:text-lg break-words">tsheltrimpemo2004@gmail.com</p>
