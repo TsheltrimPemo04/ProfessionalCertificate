@@ -5,11 +5,9 @@ const Footer = () => {
     <footer className="w-full mt-auto py-6 px-4 sm:px-8 bg-white text-center">
       {/* Navigation Links */}
       <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-base sm:text-lg mb-2">
-        <a href="#home" className="hover:text-[#8A6FE8] transition-colors">Home</a>
-        <a href="#about" className="hover:text-[#8A6FE8] transition-colors">About</a>
-        <a href="#projects" className="hover:text-[#8A6FE8] transition-colors">Projects</a>
-        <a href="#experiences" className="hover:text-[#8A6FE8] transition-colors">Experiences</a>
-        <a href="#contact" className="hover:text-[#8A6FE8] transition-colors">Contact</a>
+        <a href="/" className="hover:text-[#8A6FE8] transition-colors">Home</a>
+        <a href="/projects" className="hover:text-[#8A6FE8] transition-colors">Projects</a>
+        <a href="/achievements" className="hover:text-[#8A6FE8] transition-colors">Achievements</a>
       </div>
 
       {/* Copyright */}
