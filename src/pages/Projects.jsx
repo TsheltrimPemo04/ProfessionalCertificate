@@ -81,7 +81,7 @@ const Projects = () => {
       "Obstacle Avoid Game is an engaging mobile game where players navigate a character through a series of obstacles, testing their reflexes and coordination skills.",
     date: "01/05/2025",
     github: "https://github.com/TsheltrimPemo04/ObstacleAvoidGame",
-    demo:"",
+    demo:"https://drive.google.com/file/d/1WiRN05ELhmG8Xx6ZgUzHl7z-9q_l3_X1/view?usp=sharing",
     status: "Completed",
     tech: ["Jave", "Android Studio"],
   },
