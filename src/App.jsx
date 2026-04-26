@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Achievements from "./pages/Achievements";
+import Blog from "./pages/Blog";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
           {/* Separate Projects Page */}
           <Route path="/projects" element={<Projects />} />
           <Route path="/achievements" element={<Achievements />} />
+          <Route path="/blog" element={<Blog />} />
 
         </Routes>
       </main>

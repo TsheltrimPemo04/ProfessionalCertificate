@@ -24,7 +24,7 @@ const Navbar = () => {
   };
 
   // Pages to show in Navbar
-  const pages = ["home", "projects", "achievements"];
+  const pages = ["home", "projects", "achievements", "blog"];
 
   return (
     <div className={`fixed top-0 left-0 right-0 z-50 bg-white py-4 flex justify-between items-center text-lg transition-shadow duration-300 p-6 md:px-16 xl:px-46 ${
