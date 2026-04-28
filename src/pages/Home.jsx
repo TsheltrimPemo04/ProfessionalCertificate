@@ -1,8 +1,11 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import { Link } from 'react-router-dom';
-import { Download, ArrowRight, ChevronDown, MapPin } from 'lucide-react';
+import { Download, Play, ChevronDown, MapPin, X } from 'lucide-react';
+
+// YouTube video ID — change this if you re-upload the video
+const VIDEO_RESUME_ID = 'Cxmuy4F48Uc';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,6 +30,23 @@ const stats = [
 ];
 
 const Home = () => {
+  const [isVideoOpen, setIsVideoOpen] = React.useState(false);
+
+  // Close on Escape, and lock page scroll while modal is open
+  React.useEffect(() => {
+    if (!isVideoOpen) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setIsVideoOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isVideoOpen]);
+
   return (
     <div className="relative w-full">
       <motion.div
@@ -138,15 +158,16 @@ const Home = () => {
               </a>
             </motion.div>
 
-            {/* Secondary: Let's Talk */}
-            <motion.a
-              href="#contact"
+            {/* Secondary: Watch Video Resume — opens an in-page modal player */}
+            <motion.button
+              type="button"
+              onClick={() => setIsVideoOpen(true)}
               whileHover={{ scale: 1.03 }}
-              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full border border-gray-300 hover:border-[#8A6FE8] hover:text-[#8A6FE8] text-sm sm:text-base font-medium text-gray-900 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full border border-gray-300 hover:border-[#8A6FE8] hover:text-[#8A6FE8] text-sm sm:text-base font-medium text-gray-900 transition-colors group cursor-pointer"
             >
-              Let’s Talk
-              <ArrowRight className="w-4 h-4" />
-            </motion.a>
+              <Play className="w-4 h-4 fill-current group-hover:text-[#8A6FE8]" />
+              Watch Video Resume
+            </motion.button>
           </motion.div>
 
           {/* Socials */}
@@ -240,6 +261,53 @@ const Home = () => {
           <ChevronDown className="w-5 h-5" />
         </motion.div>
       </motion.a>
+
+      {/* Video Resume Modal */}
+      <AnimatePresence>
+        {isVideoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+            onClick={() => setIsVideoOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Video Resume"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="relative w-full max-w-4xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                type="button"
+                onClick={() => setIsVideoOpen(false)}
+                aria-label="Close video"
+                className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-gray-900 hover:bg-[#8A6FE8] hover:text-white shadow-lg flex items-center justify-center transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Player */}
+              <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black shadow-2xl ring-1 ring-white/10">
+                <iframe
+                  className="w-full h-full"
+                  src={`https://www.youtube.com/embed/${VIDEO_RESUME_ID}?autoplay=1&rel=0`}
+                  title="Tsheltrim Pemo — Video Resume"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
