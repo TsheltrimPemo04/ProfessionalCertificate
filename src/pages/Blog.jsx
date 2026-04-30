@@ -22,7 +22,6 @@ const bookReviews = [
     title: 'Surrounded by Idiots',
     author: 'Thomas Erikson',
     cover: '/public/Book1.jpeg',
-    fallbackCover: 'https://covers.openlibrary.org/b/olid/OL26895835M-L.jpg',
     readingDuration: '87 days to finish',
     publishedOn: 'April 2026',
     rating: 4.5,
@@ -110,7 +109,6 @@ const bookReviews = [
     title: 'Atomic Habits',
     author: 'James Clear',
     cover: '/public/Book2.jpeg',
-    fallbackCover: 'https://covers.openlibrary.org/b/title/book-L.jpg',
     readingDuration: '28 days to finish',
     publishedOn: 'April 2026',
     rating: 5,
@@ -253,11 +251,6 @@ const StarRating = ({ value }) => {
 };
 
 const BookReviewArticle = ({ review, featuredRef }) => {
-  const handleImgError = (e) => {
-    if (review.fallbackCover && e.target.src !== review.fallbackCover) {
-      e.target.src = review.fallbackCover;
-    }
-  };
 
   return (
     <motion.article
@@ -276,7 +269,6 @@ const BookReviewArticle = ({ review, featuredRef }) => {
             <div className="md:col-span-2 bg-gradient-to-br from-[#8A6FE8]/10 via-[#B388EB]/10 to-[#7C5FE9]/10 flex items-center justify-center p-8 md:p-10">
               <motion.img
                 src={review.cover}
-                onError={handleImgError}
                 alt={`Cover of ${review.title}`}
                 className="w-full max-w-[220px] md:max-w-[260px] rounded-lg shadow-2xl"
                 whileHover={{ rotate: -2, scale: 1.03 }}
