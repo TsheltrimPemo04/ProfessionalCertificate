@@ -32,7 +32,7 @@ const Navbar = () => {
     }`}>
       {/* Logo/Name */}
       <Link to='/' className='flex space-x-2'>
-        <img src='/logo.svg' width={25} height={25}/>
+        <img src='/logo.svg' width={30} height={30}/>
         <h1 className="font-bold">Tsheltrim Pemo</h1>
       </Link>
 
