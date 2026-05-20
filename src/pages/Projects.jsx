@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Github, ExternalLink, Sparkles, ArrowUpRight } from 'lucide-react';
+import { Calendar, Github, ExternalLink, Sparkles, ArrowUpRight, Figma } from 'lucide-react';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -69,6 +69,7 @@ const projectData = [
     date: '01/03/2025',
     github: 'https://github.com/TsheltrimPemo04/YourBhutan',
     demo: '',
+    figma: 'https://www.figma.com/design/B2tPU8YgROl3wmnNXURpX6/YourBhutan?node-id=0-1&t=0Xx8hkGJ3j0Y1yCK-1',
     status: 'Completed',
     tech: ['React', 'Tailwind', 'Framer Motion', 'Supabase'],
   },
@@ -176,6 +177,17 @@ const FeaturedProject = ({ project }) => (
                 </span>
               </a>
             )}
+            {project.figma && (
+              <a
+                href={project.figma}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-300 text-gray-900 text-sm font-medium hover:border-[#8A6FE8] hover:text-[#8A6FE8] transition-colors"
+              >
+                <Figma className="w-4 h-4" />
+                Figma
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -275,6 +287,17 @@ const ProjectCard = ({ project, index, expanded, setExpanded }) => (
               >
                 Demo
                 <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            )}
+            {project.figma && (
+              <a
+                href={project.figma}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-300 text-gray-900 text-xs font-medium hover:border-[#8A6FE8] hover:text-[#8A6FE8] transition-colors"
+              >
+                <Figma className="w-3.5 h-3.5" />
+                Figma
               </a>
             )}
           </div>
