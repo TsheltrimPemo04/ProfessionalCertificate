@@ -24,6 +24,7 @@ const projectData = [
     date: '01/02/2025',
     github: 'https://github.com/NoMindDev/agay',
     demo: 'https://drive.google.com/file/d/1Tx5cbMuj9UiEsvz_Q0swo09iKuprr0zo/view',
+    figma: 'https://www.figma.com/design/buYJBX7VOg0tdAIT8gDbcc/Agay?node-id=0-1&t=ayYCJDAsrSfpUFP6-1',
     status: 'Completed',
     tech: ['Typescript', 'Tailwind', 'RAG', 'LlamaIndex'],
     featured: true,
